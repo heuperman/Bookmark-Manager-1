@@ -21,6 +21,11 @@
       <input type="hidden" name="'id'" value="<%= bookmark.id %>">
       <input type="submit" value="Add comment">
     </form>
+
+    <form action="/bookmarks/<%= bookmark.id %>/tags" method="get">
+      <input type="hidden" name="'id'" value="<%= bookmark.id %>">
+      <input type="submit" value="Add tag">
+    </form>
   </li>
   <% end %>
 </ul>
