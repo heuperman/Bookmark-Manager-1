@@ -154,6 +154,7 @@ DEPENDENCIES
   capybara
   pg
   rails
+  rake
   rspec
   sinatra
   sinatra-flash
