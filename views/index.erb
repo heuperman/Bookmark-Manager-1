@@ -1,11 +1,11 @@
 <ul>
  <% @bookmarks.each do |bookmark| %>
  <a href="<%= bookmark.url %>"> <%= bookmark.title %></a>
-     <li><form action="/bookmarks/<%= bookmark.id %>" method='POST'>
+     <li><form action="/bookmarks/<%= bookmark.id %>/delete" method='POST'>
        <input type='hidden' name='_method' value='DELETE'>
        <input type='submit' value='Delete'>
      </form>
-        <form action="/bookmarks/update" method='GET'>
+        <form action="/bookmarks/<%= bookmark.id %>/edit" method='GET'>
           <input type='hidden' name='id' value='<%= bookmark.id %>'>
 
        <input type='submit' value='Update'>
@@ -13,8 +13,8 @@
  <% end %>
 </ul>
 <form action='/bookmarks' method='POST'>
-  title<input type='text' name='title'>
-  url<input type='text' name='url'>
+  <input type='text' name='title' placeholder='title'>
+  <input type='text' name='url' placeholder="url">
   <input type='submit' value='Add bookmark'>
 </form>
 <% if @url_invalid == 'true' %>
