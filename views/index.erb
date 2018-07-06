@@ -1,22 +1,35 @@
 <ul>
  <% @bookmarks.each do |bookmark| %>
- <a href="<%= bookmark.url %>"> <%= bookmark.title %></a>
-     <li><form action="/bookmarks/<%= bookmark.id %>/delete" method='POST'>
+   <a href="<%= bookmark.url %>"> <%= bookmark.title %></a>
+   <li>
+     <form action="/bookmarks/<%= bookmark.id %>/delete" method='POST'>
        <input type='hidden' name='_method' value='DELETE'>
        <input type='submit' value='Delete'>
-     </form>
-        <form action="/bookmarks/<%= bookmark.id %>/edit" method='GET'>
-          <input type='hidden' name='id' value='<%= bookmark.id %>'>
+    </form>
+    <form action="/bookmarks/<%= bookmark.id %>/edit" method='GET'>
+      <input type='hidden' name='id' value='<%= bookmark.id %>'>
+      <input type='submit' value='Update'>
+    </form></li>
+    <form action="/bookmarks/<%= bookmark.id %>/comments" method="get">
+      <input type="hidden" name="'id'" value="<%= bookmark.id %>">
+      <input type="submit" value="Add comment">
+    </form>
 
-       <input type='submit' value='Update'>
-     </form></li>
- <% end %>
+  <% end %>
+
+
+
+
 </ul>
 <form action='/bookmarks' method='POST'>
   <input type='text' name='title' placeholder='title'>
   <input type='text' name='url' placeholder="url">
   <input type='submit' value='Add bookmark'>
 </form>
+
+
+
+
 <% if @url_invalid == 'true' %>
 Cannot add: not a valid URL
 <% end %>
