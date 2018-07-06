@@ -7,6 +7,6 @@ feature 'add comment' do
     click_button('Add comment', match: :first)
     fill_in('comment', with: 'This is a comment.')
     click_button('Submit')
-    expect(page).to have_content 'This is a comment'
+    expect(page).to have_content 'This is a comment.'
   end
 end

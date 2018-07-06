@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/bookmark'
+require './lib/comment'
 
 class BookmarkManager < Sinatra::Base
   set :method_override, true
@@ -8,6 +9,7 @@ class BookmarkManager < Sinatra::Base
   get '/' do
     @url_invalid = params[:url_invalid]
     @bookmarks = Bookmark.all
+    @comments = Comment.all
     erb :index
   end
 
