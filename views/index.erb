@@ -7,6 +7,15 @@
        <p> <%= comment.text %> </p>
        <% end %>
       <% end %>
+    <% @bookmark_tags.each do |bookmark_tag| %>
+      <% if bookmark_tag.bookmark_id == bookmark.id %>
+      <% @tags.each do |tag| %>
+        <% if tag.id == bookmark_tag.tag_id %>
+        <p> <%= tag.content %> </p>
+       <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
     <form action="/bookmarks/<%= bookmark.id %>/delete" method='POST'>
        <input type='hidden' name='_method' value='DELETE'>
        <input type='submit' value='Delete'>

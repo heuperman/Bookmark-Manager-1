@@ -2,6 +2,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/bookmark'
 require './lib/comment'
+require './lib/tag'
+require './lib/bookmark_tag'
 
 class BookmarkManager < Sinatra::Base
   set :method_override, true
@@ -10,6 +12,8 @@ class BookmarkManager < Sinatra::Base
     @url_invalid = params[:url_invalid]
     @bookmarks = Bookmark.all
     @comments = Comment.all
+    @tags = Tag.all
+    @bookmark_tag = BookmarkTag.all
     erb :index
   end
 
